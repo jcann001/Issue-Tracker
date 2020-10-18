@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Bug Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="getIssues()">
+    <div class="container"> 
+
+       <h1>Bug Tracker</h1>
+       <form id= "issueForm">
+        <div class="form-group">
+          <label for="issueDesc">Add New Issue:</label>
+          <input type="text" class="form-control" id="issueDesc" placeholder="Enter Issue">
+        </div>
+
+        <div class="form-group">
+            <label for="issueSeverity">Severity</label>
+            <select class="form-control" id="issueSeverity">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+          <label for="issueAssignedTo">Assigned To</label>
+          <input type="text" class="form-control" id="issueAssignedTo" placeholder="Enter assignment">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit Issue</button>
+      </form>
+
+      <div class="col-lg-12">
+        <div id="issuesList">
+
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&#169; Cannon</p>
+    </div>
+    <script src="https://chancejs.com/chance.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+
+</html>
