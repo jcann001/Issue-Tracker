@@ -9,26 +9,35 @@
 
 <body onload="getIssues()">
     <div class="container"> 
-
-       <h1>Bug Tracker</h1>
+      <input type="search" id = "searchBar" placeholder="Search.." class="form-control">
+       <h1> <img src="images/imageedit_1_9566284404.png" alt=""> Bug Tracker</h1>
        <form id= "issueForm">
         <div class="form-group">
           <label for="issueDesc">Add New Issue:</label>
-          <input type="text" class="form-control" id="issueDesc" placeholder="Enter Issue">
+          <input type="text" class="form-control" id="issueDesc" placeholder="Enter Issue" required>
         </div>
 
         <div class="form-group">
+          <label for="issueAssignedTo">Issue Owner</label>
+          <input type="text" class="form-control" id="issueAssignedTo" placeholder="Enter Owner" required>
+        </div>
+
+        <div class="form-group">
+            <label for="issueType">Type</label>
+            <select class="form-control" id="issueType">
+                <option value="Software">Software</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Project">Project</option>
+                <option value="Maintenence">Maintenence</option>
+
+            </select>
+
             <label for="issueSeverity">Severity</label>
             <select class="form-control" id="issueSeverity">
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
             </select>
-        </div>
-
-        <div class="form-group">
-          <label for="issueAssignedTo">Assigned To</label>
-          <input type="text" class="form-control" id="issueAssignedTo" placeholder="Enter assignment">
         </div>
         
         <button type="submit" class="btn btn-primary">Submit Issue</button>
@@ -43,6 +52,8 @@
     <div class="footer">
       <p>&#169; Cannon</p>
     </div>
+
+
     <script src="https://chancejs.com/chance.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="main.js"></script>

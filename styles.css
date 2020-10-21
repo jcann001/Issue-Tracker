@@ -1,11 +1,56 @@
 body{
-    background-color: lightsteelblue;
+    background-color: rgb(39, 55, 99);
 }
 .container{
     margin-top: 2rem;
     padding: 2rem;
     background-color: lightgray;
     border-radius: 25px;
+}
+
+img{
+    height: 50px;
+    width: 50px;
+}
+
+br {
+    display: block;
+    margin: 25px 0;
+    content: " ";
+ }
+
+
+#searchBar{
+width: 30%;
+float: right;
+}
+
+
+.form-control{
+    border: 2px solid darkgray;
+}
+
+#issueSeverity{
+width: 20%;
+display:inline-block;
+margin-top: 30px;
+margin-bottom: 30px;
+}
+
+#issueType{
+width: 20%;
+margin-right: 50px;
+margin-top: 30px;
+margin-bottom: 30px;
+display:inline-block;
+}
+
+.well{
+    margin-top: 50px;
+    padding: 10px;
+    background-color:white;
+    border-radius: 10px;
+    border: 2px solid darkgray;
 }
 
 .footer{
