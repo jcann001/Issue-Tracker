@@ -1,5 +1,10 @@
 body{
-    background-color: rgb(39, 55, 99);
+    background-color: rgb(36, 54, 75);
+    background-image: url('images/bg.jpg');
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .container{
     margin-top: 2rem;
@@ -13,16 +18,34 @@ img{
     width: 50px;
 }
 
-br {
+#br1 {
     display: block;
     margin: 25px 0;
     content: " ";
+ }
+
+ #subBtn {
+display:inline-block;
+margin-left: 120px;
+position: relative;
+width: 20%;
  }
 
 
 #searchBar{
 width: 30%;
 float: right;
+}
+
+#myModal{
+    position: fixed;
+    margin-left: 40%;
+    margin-top: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 
@@ -53,7 +76,19 @@ display:inline-block;
     border: 2px solid darkgray;
 }
 
+
+.chart-container{
+    position: relative;
+    height:20vh;
+    width:19vw; 
+    float:right;
+    background-color: lightgray;
+    border-radius: 25px;
+    padding: 20px;
+}
+
 .footer{
     margin-top: 1%;
     margin-left: 30rem;
+    color: white;
 }

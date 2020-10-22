@@ -84,71 +84,74 @@ function getIssues() {
     
 
     issuesList.innerHTML +=   '<div class="well">'+
-                              '<h5 id = "wellId">Issue ID: ' + id + '</h5><br>'+
+                              '<h5 id = "wellId">Issue ID: ' + id + '</h5><br id="br1">'+
                               '<p>Date/Time:' +  dt +'</p>' +
                               '<h6><span class="label label-info">Current Status: ' + status + '</span></h6>'+
-                              '<p class="editDesc">Description: ' + desc + '</p>'+
+                              '<p class="editDesc">Description: ' + desc + '  </p>'+
                               '<p><span class="glyphicon glyphicon-time">Type:</span> ' + type + '</p>'+
                               '<p><span class="glyphicon glyphicon-time">Severity:</span> ' + severity + '</p>'+
                               '<p><span class="glyphicon glyphicon-user">Issue Owner:</span> ' + assignedTo + '</p>'+
                               '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a> '+
                               '<a href="#" onclick="deleteIssue(\''+id+'\')" class="btn btn-danger">Delete</a> '+
-                              '<a href="#" onclick="editIssue(\''+id+'\')" class="btn btn-info">Edit</a>'+
+                              '<a href="#" onclick="editIssue(\''+id+'\')"class="btn btn-info" data-toggle="modal" data-target="#myModal">Edit</a>'+
                               '</div>';
   }
 }
+// function editIssue(id){
+  var issues = JSON.parse(localStorage.getItem('issues'));
+  var issuesList = document.getElementById('issuesList');
 
-//editing description of issue
-function editIssue(id){
-    var issues = JSON.parse(localStorage.getItem('issues'));
-    var updateDesc = prompt("Enter new description here: ")
-    for (var i = 0; i < issues.length; i++) {
-      if (issues[i].id == id) {
-         issues[i].description = updateDesc;
-    } 
-  }
+const toggleModal = () => {
+  document.querySelector('.modal1')
+  .classList.toggle('modal fade modal-dialog modal-dialog-centered');
+};
 
-    localStorage.setItem('issues', JSON.stringify(issues));
+document.querySelector('#saveNewDesc')
+.addEventListener('submit', toggleModal);
+
+document.querySelector('#close1').addEventListener('submit', toggleModal);
+
+var updateDesc = document.getElementById("updateDesc").value;
+var saveNewDesc = document.getElementById("saveNewDesc").value;
+
+
+console.log(updateDesc);
+console.log({saveNewDesc});
+// var issues = JSON.parse(localStorage.getItem('issues'));
+//   for (var i = 0; i < issues.length; i++) {
+//     if (issues[i].id == id) {
+//       var desc = issues[i].description;
+
+          
+//   }
+//  }
+
+//     localStorage.setItem('issues', JSON.stringify(issues));
   
-    getIssues();
-  }
+//   getIssues();
+// }
+
+
+
 
   // var ctx = document.getElementById('myChart').getContext('2d');
-  // var myChart = new Chart(ctx, {
+  // var chart = new Chart(ctx, {
+  //     // The type of chart we want to create
   //     type: 'bar',
+  
+  //     // The data for our dataset
   //     data: {
-  //         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  //         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   //         datasets: [{
-  //             label: '# of Votes',
-  //             data: [12, 19, 3, 5, 2, 3],
-  //             backgroundColor: [
-  //                 'rgba(255, 99, 132, 0.2)',
-  //                 'rgba(54, 162, 235, 0.2)',
-  //                 'rgba(255, 206, 86, 0.2)',
-  //                 'rgba(75, 192, 192, 0.2)',
-  //                 'rgba(153, 102, 255, 0.2)',
-  //                 'rgba(255, 159, 64, 0.2)'
-  //             ],
-  //             borderColor: [
-  //                 'rgba(255, 99, 132, 1)',
-  //                 'rgba(54, 162, 235, 1)',
-  //                 'rgba(255, 206, 86, 1)',
-  //                 'rgba(75, 192, 192, 1)',
-  //                 'rgba(153, 102, 255, 1)',
-  //                 'rgba(255, 159, 64, 1)'
-  //             ],
-  //             borderWidth: 1
+  //             label: 'Total Cases',
+  //             backgroundColor: 'rgb(255,255,255)',
+  //             borderColor: 'rgb(169, 169, 169)',
+  //             data: [0, 10, 5, 2, 20, 30, 45]
   //         }]
   //     },
-  //     options: {
-  //         scales: {
-  //             yAxes: [{
-  //                 ticks: {
-  //                     beginAtZero: true
-  //                 }
-  //             }]
-  //         }
-  //     }
+  
+      // Configuration options go here
+  //     options: {}
   // });
 
   //filter issues by ID
