@@ -71,6 +71,17 @@ function getIssues() {
   var issues = JSON.parse(localStorage.getItem('issues'));
   var issuesList = document.getElementById('issuesList');
 
+//edit button
+  document.getElementById('editDescModal').addEventListener('submit', updateDesc);
+  function updateDesc() {
+    var issues = JSON.parse(localStorage.getItem('issues'));
+    var newDesc = document.getElementById("bookId").value;
+  for (var i = 0; i < issues.length; i++) {
+      issues[i].description = newDesc;
+      localStorage.setItem('issues', JSON.stringify(issues));
+    getIssues();
+  }}
+
   issuesList.innerHTML = '';
 
   for (var i = 0; i < issues.length; i++) {
@@ -81,6 +92,8 @@ function getIssues() {
     var status = issues[i].status;
     var type = issues[i].type;
     var dt = issues[i].dt;
+
+    
     
 
     issuesList.innerHTML +=   '<div class="well">'+
@@ -93,67 +106,11 @@ function getIssues() {
                               '<p><span class="glyphicon glyphicon-user">Issue Owner:</span> ' + assignedTo + '</p>'+
                               '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a> '+
                               '<a href="#" onclick="deleteIssue(\''+id+'\')" class="btn btn-danger">Delete</a> '+
-                              '<a href="#" onclick="editIssue(\''+id+'\')"class="btn btn-info" data-toggle="modal" data-target="#myModal">Edit</a>'+
+                              '<a data-toggle="modal" title="Add to description" class="open-AddBookDialog btn btn-primary" href="#addBookDialog" data-target="#exampleModalCenter">Edit</a>'+
                               '</div>';
+                              
   }
 }
-// function editIssue(id){
-  var issues = JSON.parse(localStorage.getItem('issues'));
-  var issuesList = document.getElementById('issuesList');
-
-const toggleModal = () => {
-  document.querySelector('.modal1')
-  .classList.toggle('modal fade modal-dialog modal-dialog-centered');
-};
-
-document.querySelector('#saveNewDesc')
-.addEventListener('submit', toggleModal);
-
-document.querySelector('#close1').addEventListener('submit', toggleModal);
-
-var updateDesc = document.getElementById("updateDesc").value;
-var saveNewDesc = document.getElementById("saveNewDesc").value;
-
-
-console.log(updateDesc);
-console.log({saveNewDesc});
-// var issues = JSON.parse(localStorage.getItem('issues'));
-//   for (var i = 0; i < issues.length; i++) {
-//     if (issues[i].id == id) {
-//       var desc = issues[i].description;
-
-          
-//   }
-//  }
-
-//     localStorage.setItem('issues', JSON.stringify(issues));
-  
-//   getIssues();
-// }
-
-
-
-
-  // var ctx = document.getElementById('myChart').getContext('2d');
-  // var chart = new Chart(ctx, {
-  //     // The type of chart we want to create
-  //     type: 'bar',
-  
-  //     // The data for our dataset
-  //     data: {
-  //         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  //         datasets: [{
-  //             label: 'Total Cases',
-  //             backgroundColor: 'rgb(255,255,255)',
-  //             borderColor: 'rgb(169, 169, 169)',
-  //             data: [0, 10, 5, 2, 20, 30, 45]
-  //         }]
-  //     },
-  
-      // Configuration options go here
-  //     options: {}
-  // });
-
   //filter issues by ID
 // var issues = JSON.parse(localStorage.getItem('issues'));
 // var issuesList = document.getElementById('issuesList');
@@ -172,5 +129,3 @@ console.log({saveNewDesc});
 //     }
 //   })
 // })
-
-

@@ -37,7 +37,7 @@ width: 30%;
 float: right;
 }
 
-#myModal{
+#addBookDialog{
     position: fixed;
     margin-left: 40%;
     margin-top: 15%;
