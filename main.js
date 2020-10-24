@@ -82,6 +82,38 @@ function getIssues() {
     getIssues();
   }}
 
+// var searchBar = document.getElementById('searchBar');
+
+// let searchArray = [];
+// console.log(searchBar);
+
+// searchBar.addEventListener('keyup', (e) => {
+//   const searchString = e.target.value;
+//   const filteredIssues =  searchArray.filter(issues => {
+//     return issues.id.contain(searchString);
+//   });
+//   console.log(filteredIssues);
+// })
+// function searchIssues(){
+//   var issues = JSON.parse(localStorage.getItem('issues'));
+//   var issuesList = document.getElementById('issuesList');
+//    let searchArray = [];
+//   for (var i = 0; i < issues.length; i++) {
+//     var id = issues[i].id;
+//     searchArray.push(id);
+//     console.log(searchArray)
+//     localStorage.setItem('issues', JSON.stringify(issues));
+//     getIssues();
+//   }}
+//   searchIssues();
+//   console.log(searchArray)
+
+
+
+
+
+
+
   issuesList.innerHTML = '';
 
   for (var i = 0; i < issues.length; i++) {
@@ -106,26 +138,8 @@ function getIssues() {
                               '<p><span class="glyphicon glyphicon-user">Issue Owner:</span> ' + assignedTo + '</p>'+
                               '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a> '+
                               '<a href="#" onclick="deleteIssue(\''+id+'\')" class="btn btn-danger">Delete</a> '+
-                              '<a data-toggle="modal" title="Add to description" class="open-AddBookDialog btn btn-primary" href="#addBookDialog" data-target="#exampleModalCenter">Edit</a>'+
+                              '<a data-toggle="modal" title="Add to description" class="open-AddBookDialog btn btn-info" href="#addBookDialog" data-target="#exampleModalCenter">Edit Description</a>'+
                               '</div>';
                               
   }
 }
-  //filter issues by ID
-// var issues = JSON.parse(localStorage.getItem('issues'));
-// var issuesList = document.getElementById('issuesList');
-
-// const wellIds = document.querySelector('wellId')
-// const searchBar = document.forms["searchBar"].querySelector("input");
-// searchBar.addEventListener("keyup", function(e){
-//   const searchTerm = e.target.value.toLowerCase();
-//   const searchIds = wellIds.getElementsByTagName("h6");
-//   Array.from(searchIds).forEach(function(id){
-//     const getId = id.firstElementChild.textContent;
-//     if(getId.toLowerCase().indexOf(searchTerm)!= -1){
-//       id.style.display = "block";
-//     } else {
-//       id.style.display = "none";
-//     }
-//   })
-// })
